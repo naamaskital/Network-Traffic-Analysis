@@ -162,33 +162,4 @@ python ques_4.py
 cd project/src/question_4
 python3 ques_4.py
 ```
-📌 **Expected Output:**
-- The script trains and evaluates a machine learning model for traffic classification.
-- The results will be displayed in the terminal.
-
----
-
-## ⚠ **Troubleshooting**
-❌ **Issue:** `FileNotFoundError: No such file or directory: 'recordings/chrome_capture.pcapng'`  
-✔ **Fix:** Download the required PCAP files and place them inside `project/src/question_3/recordings/`  
-
-❌ **Issue:** `ModuleNotFoundError: No module named 'scapy'`  
-✔ **Fix:** Run `pip install scapy` to install missing dependencies.  
-
-❌ **Issue:** `Analysis completed, but no graphs are generated`  
-✔ **Fix:** Ensure `res/` directory exists and check if PCAPs contain valid network traffic.  
-
----
-
-## 📢 **Additional Notes**
-- **Why aren’t PCAP files included?**  
-  - Due to GitHub’s size limitations, large `.pcap` files are **not uploaded**. Users must manually download them.
-- **Why does the code use relative paths?**  
-  - To ensure compatibility across different environments, all file paths are relative.
-- **Why are some preprocessing scripts missing?**  
-  - The preprocessing steps were completed in advance, and the final dataset is provided for direct model training.
-- **How can I contribute or modify the project?**  
-  - Fork the repository, make changes, and submit a pull request!
-
-📌 **If you encounter any issues, feel free to open a GitHub issue or contact us!** 🚀
 
