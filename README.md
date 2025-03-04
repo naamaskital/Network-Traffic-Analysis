@@ -10,7 +10,7 @@ We extract key traffic features from PCAP files, visualize network behaviors, an
 The project is organized into the following directories:
 
 ```
-project/
+Network-Traffic-Analysis-main/
 │── README.md               # This documentation file
 │── final_report.pdf        # The final project report
 │
@@ -74,7 +74,7 @@ To analyze encrypted traffic (e.g., HTTPS), you will need to configure Wireshark
 3. Add the **path to the private key** 
    - The keys can be found in the `recordings/` directory, where the capture files are stored. For example:
      ```
-     /path/to/project/src/question_3/recordings/sslkeys_all.log
+     /path/to/Network-Traffic-Analysis-main/src/question_3/recordings/sslkeys_all.log
      ```
 4. Save the settings and restart Wireshark to decrypt the traffic.
 
