@@ -39,7 +39,7 @@ Before running the scripts, you need to download the following files:
 
 ### 1️⃣ **Download PCAP Recordings**
 The PCAP recordings are available at the following link:  
-- [Download PCAP Recordings Link(compressed)]
+- [Download PCAPNG Recordings Link(compressed)]
 - https://drive.usercontent.google.com/download?id=14X829KINkmqASNlD0QL5SC-1FJPSJMLY&export=download&authuser=0
 
 After downloading,extract the ZIP, place the files directly inside the `recordings/` directory (not in a subfolder).
@@ -65,6 +65,19 @@ After downloading, extract the ZIP file into the following directory(name it com
 │   │   ├── combined_dataset.csv  # Preprocessed dataset for direct ML training
 ```
 ---
+### 🔑 **Adding Keys for Traffic Decryption in Wireshark**
+
+To analyze encrypted traffic (e.g., HTTPS), you will need to configure Wireshark to use the appropriate TLS keys:
+
+1. Open **Wireshark** and navigate to `Edit` > `Preferences`.
+2. In the **Protocols** section, find  **TLS**.
+3. Add the **path to the private key** 
+   - The keys can be found in the `recordings/` directory, where the capture files are stored. For example:
+     ```
+     /path/to/project/src/question_3/recordings/sslkeys_all.log
+     ```
+4. Save the settings and restart Wireshark to decrypt the traffic.
+
 
 ### 🔧 **Additional Steps After Downloading:**
 1. **PCAP Recordings**: Ensure that the files are placed directly inside the `recordings/` directory (not in any subfolders).
@@ -110,12 +123,6 @@ to allow `Scapy` to capture packets properly.
 ## ▶ **Running the Project**
 ### **📌 Running Question 3 (Traffic Analysis & Visualization)**
 
-#### **1️⃣ Ensure PCAP files are available**
-- If you don’t have the PCAP files, **download them from [Google Drive / Your Cloud Link Here]**
-- Place them in the correct directory:
-  ```
-  project/src/question_3/recordings/ (Ensure this directory contains the PCAP files before running the script)
-  ```
 
 #### **2️⃣ Execute the script**
 
