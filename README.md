@@ -109,7 +109,7 @@ pip install -r requirements.txt
 ```
 If `requirements.txt` is not provided, manually install:
 ```bash
-pip install scapy pandas matplotlib seaborn
+pip install pandas~=2.2.0 matplotlib~=3.10.0 seaborn~=0.13.2 scapy~=2.6.1 scikit-learn~=1.4.1.post1
 ```
 
 
