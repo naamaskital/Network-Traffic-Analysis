@@ -103,6 +103,7 @@ The script processes the dataset and generates additional features:
 ---
 
 ## ⚠️ Important Guidelines
+
 - **Ensure all required columns exist** in the dataset.
 - **Data types must be correct** (IP addresses as strings, ports as integers, timestamps as float/int).
 - **Timestamps should be sorted** to properly calculate `Inter-Arrival Time`.
