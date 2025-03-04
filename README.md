@@ -64,11 +64,6 @@ After downloading, extract the ZIP file into the following directory(name it com
 │   │   ├── ques_4.py       # Main script for training and evaluating ML models
 │   │   ├── combined_dataset.csv  # Preprocessed dataset for direct ML training
 ```
-# 📊 Traffic Classification Dataset Requirements
-
-This project requires a dataset for training and evaluating a traffic classification model. Below are the dataset structure and formatting guidelines to ensure compatibility.
-
----
 
 ## 📂 Dataset Format
 - The dataset should be provided as a **CSV file** (`combined_dataset.csv`).
