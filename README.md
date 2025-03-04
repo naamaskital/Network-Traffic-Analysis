@@ -112,9 +112,5 @@ If `requirements.txt` is not provided, manually install:
 pip install scapy pandas matplotlib seaborn
 ```
 
-On **Linux**, you may need to run:
-```bash
-sudo setcap cap_net_raw,cap_net_admin=eip $(which python3)
-```
-to allow `Scapy` to capture packets properly.
+
 
