@@ -16,7 +16,7 @@ def ip_to_int(ip):
 try:
     df = pd.read_csv('combined_dataset.csv')
 except FileNotFoundError:
-    print("Error: The file '../../combined_dataset.csv' was not found.")
+    print("Error: The file 'combined_dataset.csv' was not found.")
     # Optionally, print the current working directory for reference
     print(f"Current working directory: {os.getcwd()}")
     exit()  # Exit or handle as needed
