@@ -21,7 +21,7 @@ project/
 │   │
 │   ├── question_4/         # Scripts for machine learning classification of network traffic
 │   │   ├── ques_4.py       # Main script for training and evaluating ML models
-│   │   ├── combined_dataset.csv  # Preprocessed dataset for direct ML training
+│   │   ├── combined_dataset.csv  # Preprocessed dataset for direct ML training (not included in GitHub)
 │
 ├── res/                    # Directory for storing results (graphs, processed CSV files)
 │   ├── inter_arrival_times.png
