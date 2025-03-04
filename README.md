@@ -128,17 +128,17 @@ to allow `Scapy` to capture packets properly.
 
 ##### **On Windows:**
 ```powershell
-cd project/src/question_3
+cd Network-Traffic-Analysis-main/src/question_3
 python ques_3.py
 ```
 
 ##### **On Linux/Mac:**
 ```bash
-cd project/src/question_3
+cd Network-Traffic-Analysis-main/src/question_3
 python3 ques_3.py
 ```
 📌 **Expected Output:**
-- Generates traffic analysis graphs inside the `project/res/` directory.
+- Generates traffic analysis graphs inside the `Network-Traffic-Analysis-main/res/` directory.
 - Saves a processed CSV file (`traffic_analysis.csv`) with extracted features.
 
 ---
@@ -154,12 +154,12 @@ python3 ques_3.py
 ##### **1️⃣ Run the classification model**
 ##### **On Windows:**
 ```powershell
-cd project/src/question_4
+cd Network-Traffic-Analysis-main/src/question_4
 python ques_4.py
 ```
 ##### **On Linux/Mac:**
 ```bash
-cd project/src/question_4
+cd Network-Traffic-Analysis-main/src/question_4
 python3 ques_4.py
 ```
 
