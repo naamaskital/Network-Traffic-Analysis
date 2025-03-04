@@ -28,8 +28,23 @@ if not required_columns.issubset(df.columns):
     print(f"Error: Missing required columns: {missing}")
     exit()
 
-if df.isnull().any().any():
-    print("Error: Dataset contains missing values. Please clean the data.")
+# Handle missing values
+missing_values = df.isnull().sum()
+if missing_values.any():
+    print("Warning: Dataset contains missing values.")
+    print(missing_values[missing_values > 0])  # Show which columns have missing values
+
+    # Fill missing values with the last valid value (forward fill)
+    df.ffill(inplace=True)
+
+    # Fill remaining missing values with the next valid value (backward fill)
+    df.bfill(inplace=True)
+
+    # If there are still missing values (unlikely), drop the rows
+    df.dropna(inplace=True)
+
+if not pd.api.types.is_numeric_dtype(df["Classification"]):
+    print("Error: 'Classification' column must be numeric.")
     exit()
 
 if not pd.api.types.is_numeric_dtype(df["Classification"]):
