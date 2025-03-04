@@ -2,7 +2,7 @@
 
 ## 📌 **Project Overview**
 This project focuses on analyzing network traffic to identify application usage patterns, even when traffic is encrypted or anonymized.  
-We extract key traffic features from PCAP files, visualize network behaviors, and build machine learning models to classify traffic flows by application type.
+We extract key traffic features from PCAPNG files, visualize network behaviors, and build machine learning models to classify traffic flows by application type.
 
 ---
 
