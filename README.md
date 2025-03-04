@@ -37,8 +37,8 @@ Network-Traffic-Analysis-main/
 ## 📥 **Downloading the Required Files**
 Before running the scripts, you need to download the following files:
 
-### 1️⃣ **Download PCAP Recordings**
-The PCAP recordings are available at the following link:  
+### 1️⃣ **Download Recordings**
+The PCAPNG recordings are available at the following link:  
 - [Download PCAPNG Recordings Link(compressed)]
 - https://drive.usercontent.google.com/download?id=14X829KINkmqASNlD0QL5SC-1FJPSJMLY&export=download&authuser=0
 
