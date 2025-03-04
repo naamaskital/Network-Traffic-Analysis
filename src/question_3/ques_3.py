@@ -7,22 +7,21 @@ from scapy.layers.inet import IP, TCP
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
-# נתיבים חדשים שמתאימים למבנה התיקיות שלך
+# Directories
 recordings_dir = os.path.join(base_dir, "recordings")
-res_dir = os.path.join(base_dir, "..","..", "res")
-
+res_dir = os.path.join(base_dir, "..", "..", "res")
 os.makedirs(res_dir, exist_ok=True)
 
-
-# Dictionary of PCAP files for different applications
+# Find all PCAP/PCAPNG files in the recordings directory
 pcap_files = {
-    "Chrome": os.path.join(recordings_dir, "chrome_capture.pcapng"),
-    "Edge": os.path.join(recordings_dir, "edge_capture.pcapng"),
-    "Spotify": os.path.join(recordings_dir, "spotify_capture.pcapng"),
-    "YouTube": os.path.join(recordings_dir, "youtube_capture.pcapng"),
-    "Zoom": os.path.join(recordings_dir, "zoom_capture.pcapng")
+    os.path.splitext(file)[0]: os.path.join(recordings_dir, file)
+    for file in os.listdir(recordings_dir)
+    if file.endswith(".pcap") or file.endswith(".pcapng")
 }
 
+if not pcap_files:
+    print("No PCAP files found in the recordings directory. Exiting.")
+    exit()
 
 # Function to extract traffic features from a PCAP file
 def extract_traffic_scapy(file_path, app_name, limit=1000000):
@@ -57,7 +56,6 @@ def extract_traffic_scapy(file_path, app_name, limit=1000000):
 
     return data
 
-
 # Process all files and collect data
 traffic_data = []
 for app, file in pcap_files.items():
@@ -77,7 +75,7 @@ sns.barplot(x=df.groupby("App")["Packet_Size"].mean().index, y=df.groupby("App")
 plt.xlabel("Application")
 plt.ylabel("Average Packet Size (Bytes)")
 plt.title("Average Packet Size by Application")
-plt.savefig(os.path.join(res_dir, "total_traffic_volume.png"))  # ✔ שמירת הגרף
+plt.savefig(os.path.join(res_dir, "total_traffic_volume.png"))
 plt.close()
 
 # 2. Box plot - Comparing packet sizes per application
@@ -86,7 +84,7 @@ sns.boxplot(x="App", y="Packet_Size", data=df)
 plt.xlabel("Application")
 plt.ylabel("Packet Size (Bytes)")
 plt.title("Packet Size Distribution by Application")
-plt.savefig(os.path.join(res_dir, "packet_size_distribution.png"))  # ✔ שמירת הגרף
+plt.savefig(os.path.join(res_dir, "packet_size_distribution.png"))
 plt.close()
 
 # 3. Line plot - Comparing inter-arrival times of packets
@@ -99,7 +97,7 @@ plt.xlabel("Packet Index")
 plt.ylabel("Inter-arrival Time (seconds)")
 plt.title("Comparison of Inter-arrival Times by Application")
 plt.legend()
-plt.savefig(os.path.join(res_dir, "inter_arrival_times.png"))  # ✔ שמירת הגרף
+plt.savefig(os.path.join(res_dir, "inter_arrival_times.png"))
 plt.close()
 
 # 4. Bar plot - Number of TLS packets per application
@@ -112,9 +110,8 @@ if not df_tls.empty:
     plt.xlabel("Application")
     plt.ylabel("Number of TLS Packets")
     plt.title("Number of TLS Packets per Application")
-    plt.xticks(rotation=45)  # סיבוב התוויות למניעת חפיפה
+    plt.xticks(rotation=45)
     plt.grid(axis="y", linestyle="--", alpha=0.7)
-    os.makedirs(res_dir, exist_ok=True)
     plt.savefig(os.path.join(res_dir, "tls_packets_per_app.png"), bbox_inches="tight")
     plt.close()
 else:
@@ -126,7 +123,7 @@ sns.stripplot(x=df.groupby("App")["Src_Port"].nunique().index, y=df.groupby("App
 plt.xlabel("Application")
 plt.ylabel("Number of Unique Source Ports")
 plt.title("Number of Unique Source Ports by Application")
-plt.savefig(os.path.join(res_dir, "unique_source_ports.png"))  # ✔ שמירת הגרף
+plt.savefig(os.path.join(res_dir, "unique_source_ports.png"))
 plt.close()
 
 # 6. Bar plot - TCP flag distribution per application
@@ -137,7 +134,7 @@ plt.xlabel("Application")
 plt.ylabel("Number of TCP Packets")
 plt.title("TCP Flag Distribution per Application")
 plt.legend(title="TCP Flags", bbox_to_anchor=(1.05, 1), loc='upper left')
-plt.savefig(os.path.join(res_dir, "tcp_flag_distribution.png"))  # ✔ שמירת הגרף
+plt.savefig(os.path.join(res_dir, "tcp_flag_distribution.png"))
 plt.close()
 
 # 7. Bar plot - Number of unique source IPs per application
@@ -146,7 +143,7 @@ sns.barplot(x=df.groupby("App")["Src_IP"].nunique().index, y=df.groupby("App")["
 plt.xlabel("Application")
 plt.ylabel("Number of Unique Source IPs")
 plt.title("Number of Unique Source IPs by Application")
-plt.savefig(os.path.join(res_dir, "unique_source_ips.png"))  # ✔ שמירת הגרף
+plt.savefig(os.path.join(res_dir, "unique_source_ips.png"))
 plt.close()
 
 # Save results to a CSV file
