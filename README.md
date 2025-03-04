@@ -17,7 +17,7 @@ Network-Traffic-Analysis-main/
 ├── src/                    # Source code for processing traffic data
 │   ├── question_3/         # Scripts for analyzing application-level traffic patterns
 │   │   ├── ques_3.py       # Main script for processing PCAPs and generating visualizations
-│   │   ├── recordings/     # Directory for storing PCAP recordings (not included in GitHub)
+│   │   ├── recordings/     # Directory for storing PCAP/PCAPNG recordings (not included in GitHub)
 │   │
 │   ├── question_4/         # Scripts for machine learning classification of network traffic
 │   │   ├── ques_4.py       # Main script for training and evaluating ML models
@@ -38,7 +38,7 @@ Network-Traffic-Analysis-main/
 Before running the scripts, you need to download the following files:
 
 ### 1️⃣ **Download Recordings**
-The PCAPNG recordings are available at the following link:  
+The PCAPNG/PCAP recordings are available at the following link:  
 - [Download PCAPNG Recordings Link(compressed)]
 - https://drive.usercontent.google.com/download?id=14X829KINkmqASNlD0QL5SC-1FJPSJMLY&export=download&authuser=0
 
