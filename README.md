@@ -27,7 +27,6 @@ Network-Traffic-Analysis-main/
 │   ├── inter_arrival_times.png
 │   ├── packet_size_distribution.png
 │   ├── tcp_flag_distribution.png
-│   ├── tls_packets_per_app.png
 │   ├── traffic_analysis.csv
 │   ||| and more png
 ```
