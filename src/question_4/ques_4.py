@@ -67,8 +67,8 @@ df["Flow ID Hash"] = df["Flow ID"].apply(lambda x: int(hashlib.sha256(x.encode()
 df["Inter-Arrival Time"] = df.groupby("Flow ID Hash")["Timestamp"].diff().fillna(0)
 
 # 7. Select features
-features_case1 = df[["Size", "Timestamp", "Flow ID Hash", "Inter-Arrival Time"]]
-features_case2 = df[["Size", "Timestamp", "Inter-Arrival Time"]]
+features_case1 = df[["Size", "Flow ID Hash", "Inter-Arrival Time"]]
+features_case2 = df[["Size", "Inter-Arrival Time"]]
 labels = df["Classification"]
 
 # 8. Split data
